@@ -20,7 +20,16 @@
       </div>
     </div>
   </div>
-  <%= yield %>
+  <div class="row">
+    <div class="col-lg-3">
+      <% if content_for?(:side_menu) %>
+        <%= yield(:side_menu) %> 
+      <% end %>>
+    </div>
+    <div class="col-lg-6">
+      <%= yield %>
+    </div>
+  </div>
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <footer class="footer">

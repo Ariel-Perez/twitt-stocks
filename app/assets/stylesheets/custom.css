@@ -8,6 +8,10 @@
     color: #fff;
 }
 
+.badge {
+    vertical-align: middle;
+}
+
 .no-margin {
     margin: 0px;
 }
