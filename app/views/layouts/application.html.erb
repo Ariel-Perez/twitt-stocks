@@ -4,6 +4,13 @@
   <title>Master</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <% if content_for?(:css) %>
+    <%= yield(:css) %>
+  <% end %>
+  <% if content_for?(:javascript) %>
+    <%= yield(:javascript) %>
+  <% end %>
   <%= csrf_meta_tags %>
 </head>
 <body>

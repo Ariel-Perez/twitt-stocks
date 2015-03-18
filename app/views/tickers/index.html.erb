@@ -48,6 +48,7 @@
 <br>
 
 <%= link_to 'New Ticker', new_ticker_path %>-->
-
-<%= javascript_include_tag "tickers", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "tickers_wordcloud", "data-turbolinks-track" => true %>
+<% content_for(:javascript) do %>
+  <%= javascript_include_tag "tickers", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "tickers_wordcloud", "data-turbolinks-track" => true %>
+<% end %>
