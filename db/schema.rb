@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317043630) do
+ActiveRecord::Schema.define(version: 20150318135210) do
 
   create_table "aliases", force: true do |t|
     t.integer  "ticker_id"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150317043630) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cashtag"
+    t.string   "official_name"
   end
 
   create_table "trigrams", force: true do |t|
