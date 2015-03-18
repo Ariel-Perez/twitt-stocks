@@ -10,6 +10,27 @@ class TickersController < ApplicationController
   # GET /tickers/1
   # GET /tickers/1.json
   def show
+    unigrams_result = Unigram.select('text', 'count').where(ticker_id: @ticker.id).order(count: :desc).limit(50)
+    bigrams_result = Bigram.select('text', 'count').where(ticker_id: @ticker.id).order(count: :desc).limit(50)
+    trigrams_result = Trigram.select('text', 'count').where(ticker_id: @ticker.id).order(count: :desc).limit(50)
+
+    @unigrams = []
+    @bigrams = []
+    @trigrams = []
+
+    unigrams_result.each do |unigram|
+      @unigrams << [unigram.text, unigram.count]
+    end
+
+    bigrams_result.each do |bigram|
+      @bigrams << [bigram.text, bigram.count]
+    end
+
+    trigrams_result.each do |trigram|
+      @trigrams << [trigram.text, trigram.count]
+    end
+
+    @mentions = Mention.where(ticker_id: @ticker.id)
   end
 
   # GET /tickers/new

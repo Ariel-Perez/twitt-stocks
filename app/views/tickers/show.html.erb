@@ -1,10 +1,40 @@
 <p id="notice"><%= notice %></p>
-<div class="page-header">
-<h1><%= @ticker.official_name %><small> - <%= @ticker.cashtag %> 
-    <span title="Comentarios Positivos" class="badge badge-bull">6</span>
-    <span title="Comentarios Neutros" class="badge">1</span>
-    <span title="Comentarios Negativos" class="badge badge-bear">0</span></small></h1>
+
+<% content_for(:side_menu) do %>
+  <%= render 'side_menu_no_category' %>
+<% end %>
+
+<h1 class="ticker"><%= @ticker.official_name %><small> - <%= @ticker.cashtag %> 
+  <span title="Comentarios Positivos" class="badge badge-bull"><%= @mentions.count > 0 ? @mentions.last.positive_count : 0 %></span>
+  <span title="Comentarios Neutros" class="badge"><%= @mentions.count > 0 ? @mentions.last.neutral_count : 0 %></span>
+  <span title="Comentarios Negativos" class="badge badge-bear"><%= @mentions.count > 0 ? @mentions.last.negative_count : 0 %></span></small>
+</h1>
+
+<div role="tabpanel" data-example-id="togglable-tabs">
+  <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#unigrams" id="unigram-tab" role="tab" data-toggle="tab" aria-controls="unigrams" aria-expanded="true">Unigrams</a></li>
+    <li role="presentation">
+      <a href="#bigrams" role="tab" id="bigram-tab" data-toggle="tab" aria-controls="bigrams">Bigrams</a>
+    </li>
+    <li role="presentation">
+      <a href="#trigrams" role="tab" id="trigram-tab" data-toggle="tab" aria-controls="trigrams">Trigrams</a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="unigrams" aria-labelledBy="unigram-tab">
+      <canvas id="unigram_canvas" class="canvas" width="600" height="350"></canvas>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="bigrams" aria-labelledBy="bigram-tab">
+      <canvas id="bigram_canvas" class="canvas" width="600" height="350"></canvas>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="trigrams" aria-labelledBy="trigram-tab">
+      <canvas id="trigram_canvas" class="canvas" width="600" height="350"></canvas>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_ticker_path(@ticker) %> |
-<%= link_to 'Back', tickers_path %>
+<script>
+  generate_wordcloud(<%= raw @unigrams %>, 'unigram_canvas');
+  generate_wordcloud(<%= raw @bigrams %>, 'bigram_canvas');
+  generate_wordcloud(<%= raw @trigrams %>, 'trigram_canvas');
+</script>

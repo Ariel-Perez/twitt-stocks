@@ -11,16 +11,10 @@
 #  updated_at :datetime
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'test_helper'
 
-one:
-  ticker_id: 1
-  date: 2015-03-17 00:32:40
-  text: MyString
-  count: 1
-
-two:
-  ticker_id: 1
-  date: 2015-03-17 00:32:40
-  text: MyString
-  count: 1
+class UnigramTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

@@ -1,0 +1,9 @@
+= form_for @mention do |f|
+  - if @mention.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@mention.errors.count, "error")} prohibited this mention from being saved:"
+      ul
+        - @mention.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

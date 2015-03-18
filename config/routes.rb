@@ -1,4 +1,8 @@
 Master::Application.routes.draw do
+  resources :unigrams
+
+  resources :mentions
+
   resources :tickers
 
   get "home/index"

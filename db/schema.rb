@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318135210) do
+ActiveRecord::Schema.define(version: 20150318164105) do
 
   create_table "aliases", force: true do |t|
     t.integer  "ticker_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150318135210) do
     t.integer  "negative_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "neutral_count"
   end
 
   add_index "mentions", ["date"], name: "index_mentions_on_date"

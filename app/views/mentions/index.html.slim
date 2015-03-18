@@ -1,0 +1,19 @@
+h1 Listing mentions
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @mentions.each do |mention|
+      tr
+        td = link_to 'Show', mention
+        td = link_to 'Edit', edit_mention_path(mention)
+        td = link_to 'Destroy', mention, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Mention', new_mention_path

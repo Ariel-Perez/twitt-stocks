@@ -1,0 +1,9 @@
+= form_for @unigram do |f|
+  - if @unigram.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@unigram.errors.count, "error")} prohibited this unigram from being saved:"
+      ul
+        - @unigram.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

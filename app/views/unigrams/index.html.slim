@@ -1,0 +1,19 @@
+h1 Listing unigrams
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @unigrams.each do |unigram|
+      tr
+        td = link_to 'Show', unigram
+        td = link_to 'Edit', edit_unigram_path(unigram)
+        td = link_to 'Destroy', unigram, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Unigram', new_unigram_path

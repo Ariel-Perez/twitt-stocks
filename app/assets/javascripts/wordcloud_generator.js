@@ -1,16 +1,20 @@
-function generate_wordcloud(list, click) {
+function generate_wordcloud(list, canvas_id, click) {
     if(click == null) {
       click = function(item, dimension, event){};
     }
-    total = 0;
+
+    max = 0;
     for (var i = 0; i < list.length; i++) {
-        total += list[i][1];
+        if(max < list[i][1]) {
+          max = list[i][1];
+        }
     }
+    console.log(max);
 
     options = {
       list : list, 
       weightFactor: function (size) {
-        return size / total * 200;
+        return size / max * 50;
       },
       fontFamily: 'Times, serif',
       color: function (word, weight) {
@@ -20,5 +24,5 @@ function generate_wordcloud(list, click) {
       click: click
     }
 
-    WordCloud(document.getElementById('canvas'), options);
+    WordCloud(document.getElementById(canvas_id), options);
 }
