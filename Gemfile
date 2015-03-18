@@ -3,16 +3,33 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+#Parser
+gem 'slim-rails'
 
-group :development, :test do
+group :development do
+  gem 'annotate'
+  gem 'awesome_print'
+  gem 'quiet_assets'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  gem 'rails_layout'
+end
+
+group :test, :development do
+  # usamos SQLite para desarollo y testing
   gem 'sqlite3'
 end
 
-group :production do 
+group :production do
+  # gema requisito de Heroku
+  gem 'rails_12factor'
+  # usamos PostgresSQL para producción, por requisito de Heroku
   gem 'pg'
+  # otro webserver mejor para producción
+  #gem 'unicorn'
 end
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

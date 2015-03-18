@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Ticker.create([{name: 'Apple'}, {name: 'Samsung'}, {name: 'Google'}, {name: 'Microsoft'}])
