@@ -1,11 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby v2.0.0p451
 
-Things you may want to cover:
+* Bootstrap v3.3.4
 
-* Ruby version
+== Pending
 
 * System dependencies
 
