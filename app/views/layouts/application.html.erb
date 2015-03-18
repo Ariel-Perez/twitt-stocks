@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Master</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="menu-option" id="menu-ticker"><%= link_to 'Más Populares', '/tickers' %></li>
+            <li role="presentation" class="menu-option" id="menu-contact"><%= link_to 'Contacto', '/home/contact' %></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Twitt-Stocks</h3>
+      </div>
+    </div>
+  </div>
+  <%= yield %>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <footer class="footer">
+        <p>&copy; PUC 2015</p>
+      </footer>
+    </div>
+  </div>
+  <!--
+  <div class="container">
+  </div>-->
+
+</body>
+</html>

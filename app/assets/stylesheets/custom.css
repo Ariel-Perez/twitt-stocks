@@ -1,0 +1,13 @@
+.badge-bull {
+    background-color: #3c763d;
+    color: #fff;
+}
+
+.badge-bear {
+    background-color: #a94442;
+    color: #fff;
+}
+
+.no-margin {
+    margin: 0px;
+}

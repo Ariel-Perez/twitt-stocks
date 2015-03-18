@@ -1,0 +1,21 @@
+.side-menu {
+    padding-left: 35px;
+    padding-right: 15px;
+}
+
+.vertical-text {
+    transform: rotate(90deg);
+    transform-origin: left top 0;
+    float:left;
+}
+
+.block-text {
+    padding: 5px 15px;
+    /*
+    border: 1px solid #555;
+    background: #888;
+    color: #fff;
+*/
+    border: 1px solid #e1e1e8;
+    background-color: #f7f7f9;
+}
