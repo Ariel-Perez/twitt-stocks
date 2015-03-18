@@ -15,3 +15,17 @@
 .no-margin {
     margin: 0px;
 }
+
+#accordion .list-group-item-text {
+    display: none;
+}
+
+#accordion .collapsed .list-group-item-text {
+    display: inline;
+}
+#accordion .in .list-group-item-text {
+    display: inline;
+}
+#accordion .collapsing .list-group-item-text {
+    display: inline;
+}
