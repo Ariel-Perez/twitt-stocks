@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require wordcloud2
 //= require wordcloud_generator
+//= require directory .
