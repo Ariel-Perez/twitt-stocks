@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap
 //= require wordcloud2
-//= require wordcloud_generator
-//= require directory .
+//= require_directory .
