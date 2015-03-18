@@ -1,4 +1,4 @@
 $(function() {
     $('.menu-option').removeClass('active');
-    $('#menu-index').addClass('active');
+    $('#menu-contact').addClass('active');
 });
