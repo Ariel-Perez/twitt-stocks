@@ -19,6 +19,9 @@
     <li role="presentation">
       <a href="#trigrams" role="tab" id="trigram-tab" data-toggle="tab" aria-controls="trigrams">Trigrams</a>
     </li>
+    <li role="presentation">
+      <a href="#comments" role="tab" id="comment-tab" data-toggle="tab" aria-controls="comments">Comments</a>
+    </li>
   </ul>
   <div id="myTabContent" class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="unigrams" aria-labelledBy="unigram-tab">
@@ -29,6 +32,25 @@
     </div>
     <div role="tabpanel" class="tab-pane fade" id="trigrams" aria-labelledBy="trigram-tab">
       <canvas id="trigram_canvas" class="canvas" width="600" height="350"></canvas>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="comments" aria-labelledBy="comment-tab">
+      <br>
+      <% @comments.each do |comment| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <span class="badge badge-bull pull-right"><%= comment.support %></span>
+            <big>
+              <%= comment.text %>
+            </big>
+            <hr/>
+            <em>
+              <% if comment.url %>
+                "<%= comment.extract %>" - <%= link_to 'Ver más', comment.url %>
+              <% end %>
+            </em>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

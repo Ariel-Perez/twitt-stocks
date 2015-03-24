@@ -9,6 +9,7 @@
 #  negative_count :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  neutral_count  :integer
 #
 
 class Mention < ActiveRecord::Base

@@ -31,6 +31,7 @@ class TickersController < ApplicationController
     end
 
     @mentions = Mention.where(ticker_id: @ticker.id)
+    @comments = Comment.where(ticker_id: @ticker.id)
   end
 
   # GET /tickers/new

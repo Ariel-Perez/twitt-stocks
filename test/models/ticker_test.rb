@@ -8,6 +8,7 @@
 #  updated_at    :datetime
 #  cashtag       :string(255)
 #  official_name :string(255)
+#  category_id   :integer
 #
 
 require 'test_helper'
