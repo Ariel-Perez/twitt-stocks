@@ -1,1 +1,1 @@
-json.extract! @ticker, :id, :created_at, :updated_at
+json.extract! @ticker, :id, :name, :cashtag, :official_name,  :created_at, :updated_at
