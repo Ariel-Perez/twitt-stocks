@@ -24,16 +24,23 @@ class UnigramsController < ApplicationController
   # POST /unigrams
   # POST /unigrams.json
   def create
-    @unigram = Unigram.new(unigram_params)
+    params[:unigram].each do |uni_params|
+      @unigram = Unigram.new(uni_params)
+      @unigram.date = Date.current
+      @unigram.save
+    end
+
+
+    #@unigram = Unigram.new(unigram_params)
 
     respond_to do |format|
-      if @unigram.save
-        format.html { redirect_to @unigram, notice: 'Unigram was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @unigram }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @unigram.errors, status: :unprocessable_entity }
-      end
+      #if @unigram.save
+      format.html { redirect_to @unigram, notice: 'Unigrams were successfully created.' }
+      format.json { render action: 'show', status: :created, location: @unigram }
+      #else
+      ##  format.html { render action: 'new' }
+      ##  format.json { render json: @unigram.errors, status: :unprocessable_entity }
+      #end
     end
   end
 

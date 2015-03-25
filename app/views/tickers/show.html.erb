@@ -38,7 +38,7 @@
       <% @comments.each do |comment| %>
         <div class="panel panel-default">
           <div class="panel-body">
-            <span class="badge badge-bull pull-right"><%= comment.support %></span>
+            <span class="badge <%= comment.sentiment > 1? 'badge-bull' : comment.sentiment < -1? 'badge-bear' : '' %> pull-right"><%= comment.support %></span>
             <big>
               <%= comment.text %>
             </big>
