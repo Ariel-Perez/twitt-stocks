@@ -8,8 +8,15 @@ class TickersController < ApplicationController
     @categories = Category.all
 
     @category_filter = Category.find_by(id: params[:category])
-    @comment_filter = params[:comments]
-    
+
+    comment_filter_dict = {'pos' => 'Positivos', 'neut' => 'Neutros', 'neg' => 'Negativos'}
+    stocks_dict = {'bull' => 'Al alza', 'bear' => 'A la baja'}
+    date_dict = {'yesterday' => 'Ayer', 'oneweek' => 'Hace una semana', 'onemonth' => 'Hace un mes'}
+
+    @comment_filter = comment_filter_dict[params[:comments]] 
+    @stocks = stocks_dict[params[:stocks]]
+    @date_filter = date_dict[params[:date]]
+
   end
 
   # GET /tickers/1
@@ -37,6 +44,15 @@ class TickersController < ApplicationController
 
     @mentions = Mention.where(ticker_id: @ticker.id)
     @comments = Comment.where(ticker_id: @ticker.id)
+
+    comment_filter_dict = {'pos' => 'Positivos', 'neut' => 'Neutros', 'neg' => 'Negativos'}
+    stocks_dict = {'bull' => 'Al alza', 'bear' => 'A la baja'}
+    date_dict = {'yesterday' => 'Ayer', 'oneweek' => 'Hace una semana', 'onemonth' => 'Hace un mes'}
+
+    @comment_filter = comment_filter_dict[params[:comments]] 
+    @stocks = stocks_dict[params[:stocks]]
+    @date_filter = date_dict[params[:date]]
+
   end
 
   # GET /tickers/new
