@@ -1,7 +1,11 @@
 Master::Application.routes.draw do
-  resources :unigrams
 
-  resources :mentions
+  resources :unigrams, only: [:create]
+  resources :bigrams, only: [:create]
+  resources :trigrams, only: [:create]
+  resources :comments, only: [:create]
+
+  resources :mentions, only: [:create]
 
   resources :tickers
 

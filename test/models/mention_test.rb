@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  ticker_id      :integer
-#  date           :datetime
 #  positive_count :integer
 #  negative_count :integer
 #  created_at     :datetime

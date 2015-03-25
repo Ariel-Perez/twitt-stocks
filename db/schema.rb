@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324160950) do
+ActiveRecord::Schema.define(version: 20150325124444) do
 
   create_table "aliases", force: true do |t|
     t.integer  "ticker_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
 
   create_table "bigrams", force: true do |t|
     t.integer  "ticker_id"
-    t.datetime "date"
     t.string   "text"
     t.integer  "count"
     t.datetime "created_at"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.integer  "neutral_count"
   end
 
-  add_index "bigrams", ["date"], name: "index_bigrams_on_date"
   add_index "bigrams", ["ticker_id"], name: "index_bigrams_on_ticker_id"
 
   create_table "categories", force: true do |t|
@@ -47,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.integer  "ticker_id"
     t.string   "text"
     t.integer  "sentiment"
-    t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "support"
@@ -55,12 +52,10 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.string   "url"
   end
 
-  add_index "comments", ["date"], name: "index_comments_on_date"
   add_index "comments", ["ticker_id"], name: "index_comments_on_ticker_id"
 
   create_table "mentions", force: true do |t|
     t.integer  "ticker_id"
-    t.datetime "date"
     t.integer  "positive_count"
     t.integer  "negative_count"
     t.datetime "created_at"
@@ -68,7 +63,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.integer  "neutral_count"
   end
 
-  add_index "mentions", ["date"], name: "index_mentions_on_date"
   add_index "mentions", ["ticker_id"], name: "index_mentions_on_ticker_id"
 
   create_table "tickers", force: true do |t|
@@ -82,7 +76,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
 
   create_table "trigrams", force: true do |t|
     t.integer  "ticker_id"
-    t.datetime "date"
     t.string   "text"
     t.integer  "count"
     t.datetime "created_at"
@@ -92,12 +85,10 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.integer  "neutral_count"
   end
 
-  add_index "trigrams", ["date"], name: "index_trigrams_on_date"
   add_index "trigrams", ["ticker_id"], name: "index_trigrams_on_ticker_id"
 
   create_table "unigrams", force: true do |t|
     t.integer  "ticker_id"
-    t.datetime "date"
     t.string   "text"
     t.integer  "count"
     t.datetime "created_at"
@@ -107,7 +98,6 @@ ActiveRecord::Schema.define(version: 20150324160950) do
     t.integer  "neutral_count"
   end
 
-  add_index "unigrams", ["date"], name: "index_unigrams_on_date"
   add_index "unigrams", ["ticker_id"], name: "index_unigrams_on_ticker_id"
 
 end

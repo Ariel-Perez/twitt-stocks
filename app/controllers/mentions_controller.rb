@@ -24,16 +24,17 @@ class MentionsController < ApplicationController
   # POST /mentions
   # POST /mentions.json
   def create
-    @mention = Mention.new(mention_params)
-
+    params[:mentions].each do |men_params|
+      men_params = men_params.permit(:ticker_id, :positive_count, :negative_count, :neutral_count)
+      @mention = Mention.new(men_params)
+      @mention.save
+    end
     respond_to do |format|
-      if @mention.save
-        format.html { redirect_to @mention, notice: 'Mention was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @mention }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @mention.errors, status: :unprocessable_entity }
+      msg = { :status => :ok, :message => "Success!", :html => '<b></b>' }
+      format.html do
+        redirect_to '/'
       end
+      format.json { render :json => msg }
     end
   end
 

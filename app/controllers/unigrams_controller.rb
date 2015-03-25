@@ -5,6 +5,9 @@ class UnigramsController < ApplicationController
   # GET /unigrams.json
   def index
     @unigrams = Unigram.all
+
+    @params = ActionController::Parameters.new({"unigrams"=>["0"=>{"ticker_id"=>1, "text"=>"Hello world", "count"=>3, "positive_count"=>3, "neutral_count"=>0, "negative_count"=>0}, "1"=>{"ticker_id"=>1, "text"=>"Hello android", "count"=>2, "positive_count"=>0, "neutral_count"=>2, "negative_count"=>0}]})
+    
   end
 
   # GET /unigrams/1
@@ -24,24 +27,34 @@ class UnigramsController < ApplicationController
   # POST /unigrams
   # POST /unigrams.json
   def create
-    params[:unigram].each do |uni_params|
+    # params = ActionController::Parameters.new({"unigrams"=>["0"=>{"ticker_id"=>1, "text"=>"Hello world", "count"=>3, "positive_count"=>3, "neutral_count"=>0, "negative_count"=>0}, "1"=>{"ticker_id"=>1, "text"=>"Hello android", "count"=>2, "positive_count"=>0, "neutral_count"=>2, "negative_count"=>0}]})
+    # puts params[:unigrams]
+    # puts 'Hello'
+    params[:unigrams].each do |uni_params|
+      uni_params = uni_params.permit(:ticker_id, :text, :count, :positive_count, :negative_count, :neutral_count)
       @unigram = Unigram.new(uni_params)
-      @unigram.date = Date.current
       @unigram.save
     end
 
+    respond_to do |format|
+      msg = { :status => :ok, :message => "Success!", :html => '<b></b>' }
+      format.html do
+        redirect_to '/'
+      end
+      format.json { render :json => msg }
+    end
 
     #@unigram = Unigram.new(unigram_params)
 
-    respond_to do |format|
+    #respond_to do |format|
       #if @unigram.save
-      format.html { redirect_to @unigram, notice: 'Unigrams were successfully created.' }
-      format.json { render action: 'show', status: :created, location: @unigram }
+      #format.html { redirect_to @unigram, notice: params[:unigram]}#'Unigram was successfully created.' }
+      #  format.json { 'ok' }
       #else
-      ##  format.html { render action: 'new' }
-      ##  format.json { render json: @unigram.errors, status: :unprocessable_entity }
+      #  format.html { render action: 'new' }
+      #  format.json { render json: @unigram.errors, status: :unprocessable_entity }
       #end
-    end
+    #end
   end
 
   # PATCH/PUT /unigrams/1

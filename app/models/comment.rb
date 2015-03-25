@@ -6,9 +6,11 @@
 #  ticker_id  :integer
 #  text       :string(255)
 #  sentiment  :integer
-#  date       :datetime
 #  created_at :datetime
 #  updated_at :datetime
+#  support    :integer
+#  extract    :string(255)
+#  url        :string(255)
 #
 
 class Comment < ActiveRecord::Base
