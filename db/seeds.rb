@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-tech = Category.create(name: 'Technology')
+tech = Category.create(name: 'Tecnología')
+food = Category.create(name: 'Alimentos')
 
 apple = Ticker.create(name: 'Apple', cashtag: '$AAPL', official_name: 'Apple Inc', category_id: tech.id)
 samsung = Ticker.create(name: 'Samsung', cashtag: '$SSNLF', official_name: 'Samsung Electronics Co Ltd', category_id: tech.id)

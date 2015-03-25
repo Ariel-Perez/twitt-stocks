@@ -5,6 +5,11 @@ class TickersController < ApplicationController
   # GET /tickers.json
   def index
     @tickers = Ticker.all
+    @categories = Category.all
+
+    @category_filter = Category.find_by(id: params[:category])
+    @comment_filter = params[:comments]
+    
   end
 
   # GET /tickers/1
